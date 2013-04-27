@@ -1,0 +1,15 @@
+函数U8   SD_WriteBlock(U32 blocknum,U8 *recbuf)；会改变形参的值，
+
+如 U32 p=10;
+
+U8 *buffer＝0x3800005;
+
+执行 SD_WriteBlock(p,buffer);后，如果传过去的不是全局变量，传过去的值就会被改变
+
+如p不是全局变量p就会被改变，如果声明一全局指针U32 *P_P=&p；p的值就不会被改变
+
+如果声明一局部变量index=p;执行SD_WriteBlock(p,buffer);后p，index的值都会被改变
+
+如果index是全局变量则p的值被改变index的值不会被改变
+
+注：我用的是1.2版本的编译器
